@@ -1,0 +1,21 @@
+<h1>Komponenten</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Kategorie</th>
+  </tr>
+
+  <% @components.each do |component| %>
+      <tr>
+        <td><%= component.title %></td>
+        <td><%= component.category %></td>
+        <td><%= link_to 'Show', component_path(component) %></td>
+        <td><%= link_to 'Edit', edit_component_path(component) %></td>
+        <td><%= link_to 'Destroy', component_path(component),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+<%= link_to 'Neue Komponente', new_component_path %>
