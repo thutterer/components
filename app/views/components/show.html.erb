@@ -1,11 +1,11 @@
 <p>
-  <strong>Title:</strong>
+  <strong>Name:</strong>
   <%= @component.title %>
 </p>
 
 <p>
-  <strong>Text:</strong>
-  <%= @component.category %>
+  <strong>Kategorie:</strong>
+  <%= @component.category.title %>
 </p>
 
 <%= link_to 'Edit', edit_component_path(@component) %> |

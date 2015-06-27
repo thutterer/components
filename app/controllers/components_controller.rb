@@ -1,6 +1,10 @@
 class ComponentsController < ApplicationController
+
+  http_basic_authenticate_with name: "admin", password: "admin", except: [:index, :show]
+
   def index
     @components = Component.all
+    @categories = Category.all
   end
 
   def show
@@ -46,7 +50,7 @@ class ComponentsController < ApplicationController
 
   private
   def component_params
-    params.require(:component).permit(:title, :category)
+    params.require(:component).permit(:title, :category_id)
   end
 
 end

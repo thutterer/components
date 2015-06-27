@@ -9,7 +9,7 @@
   <% @components.each do |component| %>
       <tr>
         <td><%= component.title %></td>
-        <td><%= component.category %></td>
+        <td><%= component.category.title %></td>
         <td><%= link_to 'Show', component_path(component) %></td>
         <td><%= link_to 'Edit', edit_component_path(component) %></td>
         <td><%= link_to 'Destroy', component_path(component),

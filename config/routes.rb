@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :components
-  resources :component_types
-  resources :component_attributes
+  resources :categories
+  resources :attributes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
