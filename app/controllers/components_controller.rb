@@ -13,10 +13,12 @@ class ComponentsController < ApplicationController
 
   def new
     @component = Component.new
+    @categories = Category.all
   end
 
   def edit
     @component = Component.find(params[:id])
+    @categories = Category.all
   end
 
   def create

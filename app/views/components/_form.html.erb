@@ -20,7 +20,7 @@
 
     <p>
       <%= f.label :category_id %><br>
-      <%= f.text_field :category_id %>
+      <%= f.collection_select :category_id, @categories, :id, :title, prompt: true %>
     </p>
 
     <p>
