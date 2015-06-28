@@ -19,7 +19,7 @@
     </p>
 
     <p>
-      <%= label_tag 'Attribute' %><br>
+      <%= label_tag t('attribute') %><br>
       <% @attributes.each do |attribute| %>
           <%= label_tag attribute.title do %>
               <% if @category.addribude.include? attribute %>

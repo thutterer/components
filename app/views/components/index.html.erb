@@ -1,4 +1,4 @@
-<h1>Komponenten</h1>
+<h1><%= t('components') %></h1>
 
 <table>
   <tr>
@@ -10,12 +10,12 @@
       <tr>
         <td><%= component.title %></td>
         <td><%= component.category.title %></td>
-        <td><%= link_to 'Show', component_path(component) %></td>
-        <td><%= link_to 'Edit', edit_component_path(component) %></td>
-        <td><%= link_to 'Destroy', component_path(component),
+        <td><%= link_to t('show'), component_path(component) %></td>
+        <td><%= link_to t('edit'), edit_component_path(component) %></td>
+        <td><%= link_to t('delete'), component_path(component),
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: { confirm: t('are_you_sure') } %></td>
       </tr>
   <% end %>
 </table>
-<%= link_to 'Neue Komponente', new_component_path %>
+<%= link_to t('new_component'), new_component_path %>

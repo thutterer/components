@@ -1,19 +1,19 @@
-<h1>Kategorien</h1>
+<h1><%= t('categories') %></h1>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th><%= t('title') %></th>
   </tr>
 
   <% @categories.each do |category| %>
       <tr>
         <td><%= category.title %></td>
-        <td><%= link_to 'Show', category_path(category) %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category_path(category),
+        <td><%= link_to t('show'), category_path(category) %></td>
+        <td><%= link_to t('edit'), edit_category_path(category) %></td>
+        <td><%= link_to t('delete'), category_path(category),
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+                        data: { confirm: t('are_you_sure') } %></td>
       </tr>
   <% end %>
 </table>
-<%= link_to 'Neue Kategorie', new_category_path %>
+<%= link_to t('new_category'), new_category_path %>

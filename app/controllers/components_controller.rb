@@ -28,6 +28,9 @@ class ComponentsController < ApplicationController
     if @component.save
       redirect_to @component
     else
+      # quick bugfix for last commit.
+      #   redirect_to action: 'new' might be better but that doesn't show validation error messages
+      @categories = Category.all
       render 'new'
     end
   end

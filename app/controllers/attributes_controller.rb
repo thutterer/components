@@ -1,14 +1,14 @@
 class AttributesController < ApplicationController
 
-  http_basic_authenticate_with name: 'admin', password: 'admin', except: [:index, :show]
+  http_basic_authenticate_with name: 'admin', password: 'admin', except: [:index]
 
   def index
     @attributes = Attribute.all
   end
 
-  #def show
+  # def show
   #  @attribute = Attribute.find(params[:id])
-  #end
+  # end
 
   def new
     @attribute = Attribute.new
@@ -32,7 +32,7 @@ class AttributesController < ApplicationController
     @attribute = Attribute.find(params[:id])
 
     if @attribute.update(attribute_params)
-      redirect_to @attribute
+      redirect_to action: 'index'
     else
       render 'edit'
     end
