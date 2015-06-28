@@ -1,0 +1,18 @@
+<h1>Attribute</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+  <% @attributes.each do |attribute| %>
+      <tr>
+        <td><%= attribute.title %></td>
+        <td><%= link_to 'Edit', edit_attribute_path(attribute) %></td>
+        <td><%= link_to 'Destroy', attribute_path(attribute),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+<%= link_to 'Neues Attribut', new_attribute_path %>

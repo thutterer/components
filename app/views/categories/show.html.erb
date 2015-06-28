@@ -3,5 +3,11 @@
   <%= @category.title %>
 </p>
 
+<p>
+  <strong>Attribute</strong><br>
+  <% @category.addribude.all.each do |c| %>
+      <%= c.title %><br>
+  <% end %>
+</p>
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

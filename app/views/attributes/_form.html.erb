@@ -1,0 +1,24 @@
+<%= form_for @attribute do |f| %>
+    <% if @attribute.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@attribute.errors.count, "error") %> prohibited
+            this attribute from being saved:
+          </h2>
+          <ul>
+            <% @attribute.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

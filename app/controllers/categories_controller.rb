@@ -12,16 +12,22 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @attributes = Attribute.all
   end
 
   def edit
     @category = Category.find(params[:id])
+    @attributes = Attribute.all
   end
 
   def create
     @category = Category.new(category_params)
-
+    # render plain: params[:attributes].inspect
     if @category.save
+      @category.addribude = []
+      params[:attributes].values.each do |attribute_id|
+        @category.addribude << Attribute.find(attribute_id)
+      end
       redirect_to @category
     else
       render 'new'
@@ -32,6 +38,10 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     if @category.update(category_params)
+      @category.addribude = []
+      params[:attributes].values.each do |attribute_id|
+        @category.addribude << Attribute.find(attribute_id)
+      end
       redirect_to @category
     else
       render 'edit'

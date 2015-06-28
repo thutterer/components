@@ -19,6 +19,21 @@
     </p>
 
     <p>
+      <%= label_tag 'Attribute' %><br>
+      <% @attributes.each do |attribute| %>
+          <%= label_tag attribute.title do %>
+              <% if @category.addribude.include? attribute %>
+                  <%= check_box_tag "attributes[#{attribute.title}]", attribute.id, checked: 'checked' %>
+              <% else %>
+                  <%= check_box_tag "attributes[#{attribute.title}]", attribute.id %>
+              <% end %>
+              <%= attribute.title %>
+          <% end %><br>
+      <% end %>
+
+    </p>
+
+    <p>
       <%= f.submit %>
     </p>
 <% end %>
