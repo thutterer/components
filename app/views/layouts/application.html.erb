@@ -5,6 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <ul class="nav nav-pills" role="tablist">
+    <li role="presentation"><a href="/components"><%= t('components') %></a></li>
+    <li role="presentation"><a href="/categories"><%= t('categories') %></a></li>
+    <li role="presentation"><a href="/rooms"><%= t('rooms') %></a></li>
+    <li role="presentation"><a href="/suppliers"><%= t('suppliers') %></a></li>
+    <li role="presentation"><a href="/attributes"><%= t('attributes') %></a></li>
+    <!-- <li role="presentation"><a href="/users"><%= t('users') %></a></li>
+    -->
+  </ul>
 </head>
 <body>
 
