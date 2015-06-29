@@ -1,0 +1,24 @@
+<%= form_for @supplier do |f| %>
+    <% if @supplier.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@supplier.errors.count, "error") %> prohibited
+            this component from being saved:
+          </h2>
+          <ul>
+            <% @supplier.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

@@ -1,0 +1,19 @@
+<h1><%= t('suppliers') %></h1>
+
+<table>
+  <tr>
+    <th><%= t('title') %></th>
+  </tr>
+
+  <% @suppliers.each do |supplier| %>
+      <tr>
+        <td><%= supplier.title %></td>
+        <td><%= link_to t('show'), supplier_path(supplier) %></td>
+        <td><%= link_to t('edit'), edit_supplier_path(supplier) %></td>
+        <td><%= link_to t('delete'), supplier_path(supplier),
+                        method: :delete,
+                        data: { confirm: t('are_you_sure') } %></td>
+      </tr>
+  <% end %>
+</table>
+<%= link_to t('new_supplier'), new_supplier_path %>
