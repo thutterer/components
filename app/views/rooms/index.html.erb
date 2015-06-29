@@ -1,0 +1,19 @@
+<h1><%= t('rooms') %></h1>
+
+<table>
+  <tr>
+    <th><%= t('title') %></th>
+  </tr>
+
+  <% @rooms.each do |room| %>
+      <tr>
+        <td><%= room.title %></td>
+        <td><%= link_to t('show'), room_path(room) %></td>
+        <td><%= link_to t('edit'), edit_room_path(room) %></td>
+        <td><%= link_to t('delete'), room_path(room),
+                        method: :delete,
+                        data: { confirm: t('are_you_sure') } %></td>
+      </tr>
+  <% end %>
+</table>
+<%= link_to t('new_room'), new_room_path %>
