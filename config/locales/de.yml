@@ -21,3 +21,6 @@ de:
   title: "Titel"
   rooms: "Räume"
   new_room: "Neuer Raum"
+  suppliers: "Lieferanten"
+  new_supplier: "Neuer Lieferant"
+  edit_supplier: "Lieferant bearbeiten"
