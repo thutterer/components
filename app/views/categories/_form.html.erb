@@ -13,27 +13,35 @@
         </div>
     <% end %>
 
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong><%= t("category") %></strong>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, :class => "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= label_tag t('attributes') %><br />
+          <div class="well">
+          <% @attributes.each do |attribute| %>
+              <%= label_tag attribute.title do %>
+                  <% if @category.addribude.include? attribute %>
+                      <%= check_box_tag "attributes[#{attribute.title}]", attribute.id, checked: 'checked' %>
+                  <% else %>
+                      <%= check_box_tag "attributes[#{attribute.title}]", attribute.id %>
+                  <% end %>
+                  <%= label_tag("attributes_" + attribute.title, attribute.title) %>
+              <% end %><br />
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <p>
-      <%= label_tag t('attribute') %><br>
-      <% @attributes.each do |attribute| %>
-          <%= label_tag attribute.title do %>
-              <% if @category.addribude.include? attribute %>
-                  <%= check_box_tag "attributes[#{attribute.title}]", attribute.id, checked: 'checked' %>
-              <% else %>
-                  <%= check_box_tag "attributes[#{attribute.title}]", attribute.id %>
-              <% end %>
-              <%= attribute.title %>
-          <% end %><br>
-      <% end %>
-
-    </p>
-
-    <p>
-      <%= f.submit %>
+      <%= f.submit :value => t("save"), :class => "btn btn-primary" %>
+      <%= link_to t('back'), categories_path, :class => "btn btn-default" %>
     </p>
 <% end %>
