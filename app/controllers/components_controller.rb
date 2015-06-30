@@ -4,7 +4,7 @@ class ComponentsController < ApplicationController
 
   def index
     @components = Component.all
-    @categories = Category.all
+    @categories = Category.all #do we need that?
   end
 
   def show
@@ -14,11 +14,13 @@ class ComponentsController < ApplicationController
   def new
     @component = Component.new
     @categories = Category.all
+    @rooms = Room.all
   end
 
   def edit
     @component = Component.find(params[:id])
     @categories = Category.all
+    @rooms = Room.all
   end
 
   def create
@@ -26,11 +28,12 @@ class ComponentsController < ApplicationController
     @component = Component.new(component_params)
 
     if @component.save
-      redirect_to @component
+      redirect_to action: 'index'
     else
       # quick bugfix for last commit.
       #   redirect_to action: 'new' might be better but that doesn't show validation error messages
       @categories = Category.all
+      @rooms = Room.all
       render 'new'
     end
   end
@@ -39,8 +42,10 @@ class ComponentsController < ApplicationController
     @component = Component.find(params[:id])
 
     if @component.update(component_params)
-      redirect_to @component
+      redirect_to action: 'index'
     else
+      @categories = Category.all
+      @rooms = Room.all
       render 'edit'
     end
   end
@@ -55,7 +60,7 @@ class ComponentsController < ApplicationController
 
   private
   def component_params
-    params.require(:component).permit(:title, :category_id)
+    params.require(:component).permit(:title, :category_id, :room_id)
   end
 
 end
