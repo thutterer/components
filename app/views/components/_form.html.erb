@@ -24,6 +24,12 @@
     </p>
 
     <p>
+      <%= f.label :room_id %><br>
+      <%= f.collection_select :room_id, @rooms, :id, :title, prompt: true %>
+      <!-- FIXME if no rooms.... probably also categories!!! -->
+    </p>
+
+    <p>
       <%= f.submit %>
     </p>
 <% end %>
