@@ -24,6 +24,8 @@ class ComponentsController < ApplicationController
     @categories = Category.all
     @rooms = Room.all
     @suppliers = Supplier.all
+    @attributes = Attribute.all
+    @attribute_values = ComponentAttributeValue.where(component_id: @component.id)
   end
 
   def create
@@ -31,7 +33,11 @@ class ComponentsController < ApplicationController
     @component = Component.new(component_params)
 
     if @component.save
-      redirect_to action: 'index'
+      @component.category.addribude.each do |attribute|
+        #FIXME this should also happen when a new attribute gets added to the category!! and reverse
+        ComponentAttributeValue.create(component_id: @component.id, attribute_id: attribute.id)
+      end
+      redirect_to action: 'edit', id: @component.id
     else
       # quick bugfix for last commit.
       #   redirect_to action: 'new' might be better but that doesn't show validation error messages
@@ -46,6 +52,9 @@ class ComponentsController < ApplicationController
     @component = Component.find(params[:id])
 
     if @component.update(component_params)
+      params[:values].each do |id, attribute_value|
+        ComponentAttributeValue.find(id).update(value: attribute_value)
+      end
       redirect_to action: 'index'
     else
       @categories = Category.all

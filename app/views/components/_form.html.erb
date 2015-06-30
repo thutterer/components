@@ -36,6 +36,15 @@
     </p>
 
     <p>
+      <% if defined? @attribute_values %>
+          <% @attribute_values.each do |av| %>
+              <%= label_tag @attributes.find(av.attribute_id).title %>
+              <%= text_field_tag "values[#{av.id}]", av.value %><br>
+          <% end %>
+      <% end %>
+    </p>
+
+    <p>
       <%= f.submit %>
     </p>
 <% end %>
