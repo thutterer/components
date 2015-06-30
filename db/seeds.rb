@@ -14,3 +14,4 @@ Component.create(title:"Cooler Computer", supplier: suppliers.first, room: rooms
 Component.create(title:"Druckender Drucker", supplier: suppliers[1..3].sample, room: rooms[1..3].sample, category: category[1..3].sample)
 Component.create(title:"Laser Bean", supplier: suppliers[1..3].sample, room: rooms[1..3].sample, category: category[1..3].sample)
 Component.create(title:"Klappernde Tastatur", supplier: suppliers[1..3].sample, room: rooms[1..3].sample, category: category[1..3].sample)
+User.create(email: "admin@admin.com", password: "admin12345", password_confirmation: "admin12345", admin: true)
