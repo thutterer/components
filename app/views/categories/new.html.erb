@@ -1,5 +1,8 @@
-<h1><%= t('new_category') %></h1>
+<table border="0">
+  <tr>
+    <td width="75"><%= image_tag("categoryAddXL.png", :alt => "add category") %></td>
+    <td><h4><strong><%= t('add_category') %></strong></h4></td>
+  </tr>
+</table><br />
 
 <%= render 'form' %>
-
-<%= link_to t('back'), categories_path %>

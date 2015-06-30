@@ -4,6 +4,7 @@ de:
   attributes: "Attribute"
   category: "Kategorie"
   categories: "Kategorien"
+  add_category: "Kategorie hinzufügen"
   component: "Komponente"
   components: "Komponenten"
   new_component: "Neue Komponente"

@@ -1,5 +1,8 @@
-<h1><%= t('edit_category') %></h1>
+<table border="0">
+  <tr>
+    <td width="75"><%= image_tag("categoryEditXL.png", :alt => "edit category") %></td>
+    <td><h4><strong><%= t('edit_category') %></strong></h4></td>
+  </tr>
+</table><br />
 
 <%= render 'form' %>
-
-<%= link_to t('back'), categories_path %>
