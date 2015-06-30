@@ -31,3 +31,8 @@ de:
   no_rooms: "Aktuell sind noch keine Räume vorhanden."
   no_suppliers: "Aktuell sind noch keine Lieferanten vorhanden."
   no_attributes: "Aktuell sind noch keine Attribute vorhanden."
+  sign_up: "Registrieren"
+  email: "E-Mail"
+  password: "Passwort"
+  password_confirm: "Passwort bestätigen"
+  chars: "Zeichen"
