@@ -1,5 +1,8 @@
-<h1><%= t('new_attribute') %></h1>
+<table border="0">
+  <tr>
+    <td width="75"><%= image_tag("attributeAddXL.png", :alt => "add room") %></td>
+    <td><h4><strong><%= t('new_attribute') %></strong></h4></td>
+  </tr>
+</table><br />
 
 <%= render 'form' %>
-
-<%= link_to t('back'), attributes_path %>

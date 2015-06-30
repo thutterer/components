@@ -1,5 +1,7 @@
-<h1><%= t('edit_attribute') %></h1>
-
+<table border="0">
+  <tr>
+    <td width="75"><%= image_tag("attributeEditXL.png", :alt => "edit attribute") %></td>
+    <td><h4><strong><%= t('edit_attribute') %></strong></h4></td>
+  </tr>
+</table><br />
 <%= render 'form' %>
-
-<%= link_to t('back'), categories_path %>
