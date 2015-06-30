@@ -9,11 +9,11 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <strong>Lieferanten <span class="badge"><%= @suppliers.count %></span> </strong>
+    <strong><%= t('suppliers') %><span class="badge"><%= @suppliers.count %></span> </strong>
   </div>
     <% if @suppliers.count == 0 %>
     <div class="panel-body">
-      Aktuell sind noch keine Lieferanten vorhanden.
+        <%= t('no_suppliers') %>
     </div>
     <% else %>
     <table class="table table-hover table-striped">
@@ -40,4 +40,3 @@
     <% end %>
 </div>
 
-<%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_supplier'), new_supplier_path, :class => "btn btn-primary" %>
