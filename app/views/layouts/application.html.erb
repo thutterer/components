@@ -3,8 +3,18 @@
 <head>
   <title><%= t('app_title') %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'default', :media => 'screen' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'utilities' %>
   <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div id="header">
+  <%= image_tag("logo.png", :alt => "logo") %>
+</div>
+
+<div id="navigation">
   <ul class="nav nav-pills" role="tablist">
     <li role="presentation"><a href="/components"><%= t('components') %></a></li>
     <li role="presentation"><a href="/categories"><%= t('categories') %></a></li>
@@ -14,10 +24,15 @@
     <!-- <li role="presentation"><a href="/users"><%= t('users') %></a></li>
     -->
   </ul>
-</head>
-<body>
+</div>
 
-<%= yield %>
+<div id="content">
+  <%= yield %>
+</div>
+
+<div id="footer">
+   <%= link_to("GitHub Project", "https://github.com/thutterer/components", { :target => "_blank" }) %>
+</div>
 
 </body>
 </html>

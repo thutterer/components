@@ -1,0 +1,17 @@
+#header {
+    background-color: #000;
+    padding: 5pt;
+}
+
+#navigation {
+}
+
+#content {
+    padding: 12pt;
+}
+
+#footer {
+    padding-top: 5px;
+    border-top: 1px solid #000;
+    text-align: center;
+}

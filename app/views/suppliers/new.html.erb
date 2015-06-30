@@ -1,5 +1,8 @@
-<h1><%= t('new_supplier') %></h1>
+<table border="0">
+  <tr>
+    <td width="75"><%= image_tag("supplierAddXL.png", :alt => "add supplier") %></td>
+    <td><h4><strong><%= t('new_supplier') %></strong></h4></td>
+  </tr>
+</table><br />
 
 <%= render 'form' %>
-
-<%= link_to t('back'), suppliers_path %>

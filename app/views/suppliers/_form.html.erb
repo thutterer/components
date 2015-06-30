@@ -1,10 +1,10 @@
 <%= form_for @supplier do |f| %>
     <% if @supplier.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@supplier.errors.count, "error") %> prohibited
-            this component from being saved:
-          </h2>
+        <div class="alert alert-danger">
+        <strong>
+          <%= @supplier.errors.count %> Fehler
+          <% if @supplier.errors.count == 1 %>ist<% else %>sind<% end %> aufgetreten:
+        </strong>
           <ul>
             <% @supplier.errors.full_messages.each do |msg| %>
                 <li><%= msg %></li>
@@ -13,12 +13,20 @@
         </div>
     <% end %>
 
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <strong>Lieferant</strong>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, :class => "form-control" %>
+        </div>
+      </div>
+    </div>
 
     <p>
-      <%= f.submit %>
+      <%= f.submit :value => t("save"), :class => "btn btn-primary" %>
+      <%= link_to t('back'), suppliers_path, :class => "btn btn-default" %>
     </p>
 <% end %>
