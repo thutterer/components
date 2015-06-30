@@ -30,6 +30,12 @@
     </p>
 
     <p>
+      <%= f.label :supplier_id %><br>
+      <%= f.collection_select :supplier_id, @suppliers, :id, :title, prompt: true %>
+      <!-- FIXME if no suppliers.... probably also categories!!! -->
+    </p>
+
+    <p>
       <%= f.submit %>
     </p>
 <% end %>
