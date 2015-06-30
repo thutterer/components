@@ -5,6 +5,7 @@
     <th><%= t('title') %></th>
     <th><%= t('category') %></th>
     <th><%= t('room') %></th>
+    <th><%= t('supplier') %></th>
   </tr>
 
   <% @components.each do |component| %>
@@ -12,6 +13,7 @@
         <td><%= component.title %></td>
         <td><%= component.category.title %></td>
         <td><%= component.room.title %></td>
+        <td><%= component.supplier.title %></td>
         <td><%= link_to t('show'), component_path(component) %></td>
         <td><%= link_to t('edit'), edit_component_path(component) %></td>
         <td><%= link_to t('delete'), component_path(component),
