@@ -1,19 +1,43 @@
-<h1><%= t('suppliers') %></h1>
-
-<table>
+<table border="0">
   <tr>
-    <th><%= t('title') %></th>
+    <td width="75"><%= image_tag("supplierXL.png", :alt => "supplier") %></td>
+    <td><h4><strong><%= t('suppliers') %></strong></h4></td>
   </tr>
+</table><br />
 
-  <% @suppliers.each do |supplier| %>
-      <tr>
-        <td><%= supplier.title %></td>
-        <td><%= link_to t('show'), supplier_path(supplier) %></td>
-        <td><%= link_to t('edit'), edit_supplier_path(supplier) %></td>
-        <td><%= link_to t('delete'), supplier_path(supplier),
-                        method: :delete,
-                        data: { confirm: t('are_you_sure') } %></td>
-      </tr>
-  <% end %>
-</table>
-<%= link_to t('new_supplier'), new_supplier_path %>
+<%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_supplier'), new_supplier_path, :class => "btn btn-primary" %><br /><br />
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>Lieferanten <span class="badge"><%= @suppliers.count %></span> </strong>
+  </div>
+    <% if @suppliers.count == 0 %>
+    <div class="panel-body">
+      Aktuell sind noch keine Lieferanten vorhanden.
+    </div>
+    <% else %>
+    <table class="table table-hover table-striped">
+      <thead>
+       <tr>
+         <th width="350">Name</th>
+         <th></th>
+       </tr>
+      </thead>
+      <tbody>
+      <% @suppliers.each do |supplier| %>
+          <tr>
+            <td><%= supplier.title %></td>
+            <td>
+              <%= link_to image_tag("editS.png", :rel => "tooltip", :title => t('edit')), edit_supplier_path(supplier) %>
+              <%= link_to image_tag("deleteS.png", :rel => "tooltip", :title => t('delete')), supplier_path(supplier),
+                            method: :delete,
+                            data: { confirm: t('are_you_sure') } %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <% end %>
+</div>
+
+<%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_supplier'), new_supplier_path, :class => "btn btn-primary" %>
