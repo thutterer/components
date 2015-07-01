@@ -53,6 +53,7 @@ de:
         component:
           attributes:
             quantity:
+              bad_blank: ": Bitte Anzahl eingeben."
               not_integer: ": Nur ganzzahlige Werte eintragen."
               negative_number: ": Anzahl kann nicht negativ sein."
             title:
