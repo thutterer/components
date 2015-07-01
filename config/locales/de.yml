@@ -40,6 +40,7 @@ de:
   logged_in_as: "Angemeldet als"
   edit_profile: "Profil bearbeiten"
   logout: "Abmelden"
+  login: "Anmelden"
   activerecord:
     errors:
       models:
