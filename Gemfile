@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
+# We want a fancy datepicker
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
 gem 'devise'
 gem 'cancan'
 gem 'therubyracer'
