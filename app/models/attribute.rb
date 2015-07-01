@@ -3,4 +3,5 @@ class Attribute < ActiveRecord::Base
   has_many  :components, through: :component_attribute_values
 
   validates :title, presence: true
+  validates :title, uniqueness: true
 end
