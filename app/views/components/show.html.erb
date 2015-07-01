@@ -31,7 +31,7 @@
   <div class="panel-heading">
     <strong> <%= t('attributes') %> </strong>
   </div>
-  <% if not defined? @attribute_values %>
+  <% if not defined? @attribute_values or @attribute_values.count == 0 %>
     <div class="panel-body">
       Es wurden noch keine Attribute hinzugefügt.
     </div>
