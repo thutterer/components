@@ -1,50 +1,66 @@
 <%= form_for @component do |f| %>
     <% if @component.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@component.errors.count, "error") %> prohibited
-            this component from being saved:
-          </h2>
-          <ul>
-            <% @component.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
+      <div class="alert alert-danger">
+        <strong>
+          <%= @component.errors.count %> Fehler
+          <% if @component.errors.count == 1 %>
+            ist
+          <% else %>
+            sind
+          <% end %>
+          aufgetreten.
+        </strong>
+        <ul>
+          <% @component.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
 
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <strong>Komponente</strong>
+      </div>
+      <div class="panel-body">
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, :class => "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :category_id, :value => t('category') %>
+          <%= f.collection_select :category_id, @categories, :id, :title, { prompt: true }, { class: 'form-control' } %>
+        </div>
+        <div class="form-group">
+          <%= f.label :room_id, :value => t('room') %>
+          <%= f.collection_select :room_id, @rooms, :id, :title, { prompt: true }, { class: 'form-control' } %>
+          <!-- FIXME if no rooms.... probably also categories!!! -->
+        </div>
+        <div class="form-group">
+          <%= f.label :supplier_id, :value => t('supplier') %>
+          <%= f.collection_select :supplier_id, @suppliers, :id, :title, { prompt: true }, { class: 'form-control' } %>
+          <!-- FIXME if no suppliers.... probably also categories!!! -->
+        </div>
+        <% if defined? @attribute_values %>
+        <div class="form-group">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <strong><%= t('attributes') %></strong>
+            </div>
+            <div class="panel-body">
+              <% @attribute_values.each do |av| %>
+                <%= label_tag  "values_#{av.id}", @attributes.find(av.attribute_id).title %>
+                <%= text_field_tag "values[#{av.id}]", av.value, class: "form-control" %><br>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
 
     <p>
-      <%= f.label :category_id %><br>
-      <%= f.collection_select :category_id, @categories, :id, :title, prompt: true %>
-    </p>
-
-    <p>
-      <%= f.label :room_id %><br>
-      <%= f.collection_select :room_id, @rooms, :id, :title, prompt: true %>
-      <!-- FIXME if no rooms.... probably also categories!!! -->
-    </p>
-
-    <p>
-      <%= f.label :supplier_id %><br>
-      <%= f.collection_select :supplier_id, @suppliers, :id, :title, prompt: true %>
-      <!-- FIXME if no suppliers.... probably also categories!!! -->
-    </p>
-
-    <p>
-      <% if defined? @attribute_values %>
-          <% @attribute_values.each do |av| %>
-              <%= label_tag @attributes.find(av.attribute_id).title %>
-              <%= text_field_tag "values[#{av.id}]", av.value %><br>
-          <% end %>
-      <% end %>
-    </p>
-
-    <p>
-      <%= f.submit %>
+      <%= f.submit value: t('save'), class: "btn btn-primary" %>
+      <%= link_to "Zurück", components_path, class: "btn btn-default" %>
     </p>
 <% end %>
