@@ -76,7 +76,7 @@ class ComponentsController < ApplicationController
 
   private
   def component_params
-    params.require(:component).permit(:title, :category_id, :room_id, :supplier_id)
+    params.require(:component).permit(:title, :category_id, :room_id, :supplier_id, :quantity)
   end
 
 end

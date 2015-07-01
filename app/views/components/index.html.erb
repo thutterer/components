@@ -20,6 +20,7 @@
     <thead>
       <tr>
         <th><%= t('title') %></th>
+        <th><%= t('quantity') %></th>
         <th><%= t('category') %></th>
         <th><%= t('room') %></th>
         <th><%= t('supplier') %></th>
@@ -30,6 +31,7 @@
         <% @components.each do |component| %>
             <tr>
               <td><%= link_to component.title, component_path(component) %></td>
+              <td><%= component.quantity %></td>
               <td><%= component.category.title %></td>
               <td><%= component.room.title %></td>
               <td><%= component.supplier.title %></td>

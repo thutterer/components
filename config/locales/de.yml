@@ -19,7 +19,8 @@ de:
   edit: "Bearbeiten"
   delete: "Löschen"
   are_you_sure: "Sind Sie sicher?"
-  title: "Titel"
+  title: "Bezeichnung"
+  quantity: "Anzahl"
   room: "Raum"
   rooms: "Räume"
   new_room: "Neuer Raum"
@@ -51,6 +52,9 @@ de:
               bad_blank: ": Bitte Titel eingeben."
         component:
           attributes:
+            quantity:
+              not_integer: ": Nur ganzzahlige Werte eintragen."
+              negative_number: ": Anzahl kann nicht negativ sein."
             title:
               bad_blank: ": Bitte Titel eingeben."
             category_id:
