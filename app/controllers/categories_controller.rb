@@ -26,8 +26,10 @@ class CategoriesController < ApplicationController
     # render plain: params[:attributes].inspect
     if @category.save
       @category.addribude = []
-      params[:attributes].values.each do |attribute_id| #FIXME if no attributes
-        @category.addribude << Attribute.find(attribute_id)
+      if defined? params[:attributes].values
+        params[:attributes].values.each do |attribute_id| #FIXME if no attributes
+          @category.addribude << Attribute.find(attribute_id)
+        end
       end
       redirect_to @category
     else
@@ -40,8 +42,10 @@ class CategoriesController < ApplicationController
 
     if @category.update(category_params)
       @category.addribude = []
-      params[:attributes].values.each do |attribute_id| #FIXME if no attributes
-        @category.addribude << Attribute.find(attribute_id)
+      if defined? params[:attributes].values
+        params[:attributes].values.each do |attribute_id| #FIXME if no attributes
+          @category.addribude << Attribute.find(attribute_id)
+        end
       end
       redirect_to @category
     else
