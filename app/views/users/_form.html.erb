@@ -20,22 +20,14 @@
       <div class="panel-body">
         <div class="form-group">
           <%= f.label :email %>
-          <%= f.text_field :email, :class => "form-control", :autofocus => true %>
+          <%= f.text_field :email, :class => "form-control", :autofocus => true, disabled: 'yes' %>
+          <%= f.collection_select :role_id, @roles, :id, :name, { prompt: true }, { class: 'form-control'} %>
         </div>
-        <div class="form-group">
-          <%= label_tag t('attributes') %><br />
-          <div class="well">
-            <% @user.each do |user| %>
-                <%= label_tag user.email do %>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-
-                    <p>
-                      <%= f.submit :value => t("save"), :class => "btn btn-primary" %>
-                      <%= link_to t('back'), edit_user_path, :class => "btn btn-default" %>
-                    </p>
-                <% end %>
-            <% end %>
+         </div>
+         </div>
+        </div>
+        </div>
+        <p>
+        <%= f.submit :value => t("save"), :class => "btn btn-primary" %>
+        </p>
 <% end %>

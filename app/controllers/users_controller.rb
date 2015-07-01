@@ -8,10 +8,17 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @roles = Role.all
   end
 
-  def show
+  def update
     @user = User.find(params[:id])
+    if @user.update_attributes(role_id: params['user']['role_id'].to_i)
+      flash[:success] = "Rolle erfolgreich geaendert."
+    else
+      flash[:info] = "Could not change Role."
+    end
+    redirect_to action: 'index'
   end
 
   def destroy
@@ -20,13 +27,10 @@ class UsersController < ApplicationController
     flash[:success] = "User Deleted"
     redirect_to users_path
   end
-
-
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
+    params.require(:user).permit(:role_id)
   end
 
 end
