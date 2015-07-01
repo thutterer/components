@@ -1,0 +1,43 @@
+<table border="0">
+  <tr>
+    <td width="75"><%= image_tag("supplierXL.png", :alt => "supplier") %></td>
+    <td><h4><strong><%= t('suppliers') %></strong></h4></td>
+  </tr>
+</table><br />
+<div>
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div><br><br>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <strong><%= t('suppliers') %> <span class="badge"><%= @users.count %></span> </strong>
+  </div>
+  <% if @users.count == 0 %>
+      <div class="panel-body">
+        <%= t('no_suppliers') %>
+      </div>
+  <% else %>
+      <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+          <th width="350">Name</th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+            <tr>
+              <td><%= user.email %></td>
+              <td>
+                <%= link_to image_tag("editS.png", :rel => "tooltip", :title => t('edit')), edit_user_path(user) %>
+                <%= link_to image_tag("deleteS.png", :rel => "tooltip", :title => t('delete')), user_url(user),
+                            method: :delete,
+                            data: { confirm: t('are_you_sure') } %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
+</div>
+
