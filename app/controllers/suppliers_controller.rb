@@ -4,7 +4,7 @@ class SuppliersController < ApplicationController
   skip_load_resource :only => [:create]
 
   def index
-    @suppliers = Supplier.all
+    @suppliers = Supplier.paginate(:page => params[:page], :per_page => 5)
   end
 
   def new
