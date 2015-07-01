@@ -15,7 +15,7 @@ class ComponentsController < ApplicationController
   end
 
   def new
-    @component = Component.new
+    @component = Component.new(quantity: 1)
     @categories = Category.all
     @rooms = Room.all
     @suppliers = Supplier.all
