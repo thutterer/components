@@ -6,6 +6,10 @@
 #navigation {
 }
 
+.navbar-text {
+    color: #fff;
+}
+
 #content {
     padding: 12pt;
 }

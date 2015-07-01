@@ -7,7 +7,7 @@
 
 <%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_category'), new_category_path, :class => "btn btn-primary" %><br /><br />
 
-<div class="panel panel-default">
+<div class="panel panel-primary">
   <div class="panel-heading">
     <strong><%= t("categories") %> <span class="badge"><%= @categories.count %></span> </strong>
   </div>
@@ -39,5 +39,3 @@
       </table>
   <% end %>
 </div>
-
-<%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_category'), new_category_path, :class => "btn btn-primary" %>

@@ -13,14 +13,14 @@
         </div>
     <% end %>
 
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
       <div class="panel-heading">
         <strong><%= t('attribute') %></strong>
       </div>
       <div class="panel-body">
         <div class="form-group">
           <%= f.label t('title') %>
-          <%= f.text_field :title, :class => "form-control" %>
+          <%= f.text_field :title, :class => "form-control", :autofocus => true %>
         </div>
       </div>
     </div>

@@ -37,6 +37,9 @@ de:
   password_confirm: "Passwort bestätigen"
   chars: "Zeichen"
   general_settings: "Allgemeine Einstellungen"
+  logged_in_as: "Angemeldet als"
+  edit_profile: "Profil bearbeiten"
+  logout: "Abmelden"
   activerecord:
     errors:
       models:
@@ -65,3 +68,4 @@ de:
             title:
               bad_blank: ": Bitte Lieferanten eingeben."
               bad_taken: ": Der eingegebener Lieferant existiert bereits."
+
