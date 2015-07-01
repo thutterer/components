@@ -8,6 +8,8 @@ class ComponentsController < ApplicationController
 
   def show
     @component = Component.find(params[:id])
+    @attributes = Attribute.all
+    @attribute_values = ComponentAttributeValue.where(component_id: @component.id)
   end
 
   def new

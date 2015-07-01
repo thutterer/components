@@ -1,12 +1,53 @@
-<p>
-  <strong><%= t('title') %></strong>
-  <%= @component.title %>
-</p>
+<table border="0">
+  <tr>
+    <td width="75"><%= image_tag("componentsXL.png", :alt => "component") %></td>
+    <td><h4><strong><%= t('component') %>: <%= @component.title %></strong></h4></td>
+  </tr>
+</table><br />
 
-<p>
-  <strong><%= t('category')%></strong>
-  <%= @component.category.title %>
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <strong> <%= t('general_settings') %> </strong>
+  </div>
+  <table class="table table-hover table-striped">
+    <tbody>
+     <tr>
+       <td width="200"><strong><%= t('category')%></strong></td>
+       <td><%= @component.category.title %></td>
+     </tr>
+     <tr>
+       <td><strong><%= t('room')%></strong></td>
+       <td><%= @component.room.title %></td>
+     </tr>
+     <tr>
+       <td><strong><%= t('supplier')%></strong></td>
+       <td><%= @component.supplier.title %></td>
+     </tr>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to t('edit'), edit_component_path(@component) %> |
-<%= link_to t('back'), components_path %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <strong> <%= t('attributes') %> </strong>
+  </div>
+  <% if not defined? @attribute_values %>
+    <div class="panel-body">
+      Es wurden noch keine Attribute hinzugefügt.
+    </div>
+  <% else %>
+    <table class="table table-hover table-striped">
+      <tbody>
+      <% @attribute_values.each do |av| %>
+        <tr>
+          <td width="200"><strong><%= @attributes.find(av.attribute_id).title %></strong></td>
+          <td><%= av.value %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
+
+<%= link_to t('edit'), edit_component_path(@component), class: "btn btn-primary" %>
+<%= link_to t('back'), components_path, class: "btn btn-default" %>

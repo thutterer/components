@@ -1,5 +1,8 @@
-<h1><%= t('edit_component') %></h1>
+<table border="0">
+  <tr>
+    <td width="75"><%= image_tag("componentsXL.png", :alt => "edit component") %></td>
+    <td><h4><strong><%= t('edit_component') %></strong></h4></td>
+  </tr>
+</table><br />
 
 <%= render 'form' %>
-
-<%= link_to t('back'), components_path %>

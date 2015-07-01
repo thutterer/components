@@ -1,25 +1,51 @@
-<h1><%= t('components') %></h1>
-
-<table>
+<table border="0">
   <tr>
-    <th><%= t('title') %></th>
-    <th><%= t('category') %></th>
-    <th><%= t('room') %></th>
-    <th><%= t('supplier') %></th>
+    <td width="75"><%= image_tag("componentsXL.png", :alt => "components") %></td>
+    <td><h4><strong><%= t('components') %></strong></h4></td>
   </tr>
+</table><br />
 
-  <% @components.each do |component| %>
+<%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_component'), new_component_path, :class => "btn btn-primary" %><br /><br />
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>Komponenten <span class="badge"><%= @components.count %></span></strong>
+  </div>
+  <% if @components.count == 0 %>
+  <div class="panel-body">
+    Es wurden bisher noch keine Komponenten eingetragen.
+  </div>
+  <% else %>
+  <table class="table table-hover table-striped">
+    <thead>
       <tr>
-        <td><%= component.title %></td>
-        <td><%= component.category.title %></td>
-        <td><%= component.room.title %></td>
-        <td><%= component.supplier.title %></td>
-        <td><%= link_to t('show'), component_path(component) %></td>
-        <td><%= link_to t('edit'), edit_component_path(component) %></td>
-        <td><%= link_to t('delete'), component_path(component),
-                        method: :delete,
-                        data: { confirm: t('are_you_sure') } %></td>
+        <th><%= t('title') %></th>
+        <th><%= t('category') %></th>
+        <th><%= t('room') %></th>
+        <th><%= t('supplier') %></th>
+        <th></th>
       </tr>
+    </thead>
+    <tbody>
+        <% @components.each do |component| %>
+            <tr>
+              <td><%= link_to component.title, component_path(component) %></td>
+              <td><%= component.category.title %></td>
+              <td><%= component.room.title %></td>
+              <td><%= component.supplier.title %></td>
+              <td>
+                <%= link_to image_tag("editS.png"), edit_component_path(component),
+                              :rel => "tooltip",
+                              :title => t('edit') %>
+                <%= link_to image_tag("deleteS.png"), component_path(component),
+                              :rel => "tooltip",
+                              :title => t('delete'),
+                              method: :delete,
+                              data: { confirm: t('are_you_sure') } %>
+              </td>
+            </tr>
+        <% end %>
+    </tbody>
+  </table>
   <% end %>
-</table>
-<%= link_to t('new_component'), new_component_path %>
+</div>
