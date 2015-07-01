@@ -20,6 +20,10 @@
        <td><%= @component.category.title %></td>
      </tr>
      <tr>
+       <td><strong><%= t('invoice_date')%></strong></td>
+       <td><%= if defined? @component.invoice.strftime then @component.invoice.strftime("%d.%m.%Y") else '' end %></td>
+     </tr>
+     <tr>
        <td><strong><%= t('room')%></strong></td>
        <td><%= @component.room.title %></td>
      </tr>

@@ -15,7 +15,7 @@ class ComponentsController < ApplicationController
   end
 
   def new
-    @component = Component.new(quantity: 1)
+    @component = Component.new(quantity: 1, invoice: Time.now)
     @categories = Category.all
     @rooms = Room.all
     @suppliers = Supplier.all
@@ -76,7 +76,7 @@ class ComponentsController < ApplicationController
 
   private
   def component_params
-    params.require(:component).permit(:title, :category_id, :room_id, :supplier_id, :quantity)
+    params.require(:component).permit(:title, :category_id, :room_id, :supplier_id, :quantity, :invoice)
   end
 
 end

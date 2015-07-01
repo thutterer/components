@@ -75,3 +75,4 @@ de:
               bad_blank: ": Bitte Lieferanten eingeben."
               bad_taken: ": Der eingegebener Lieferant existiert bereits."
 
+  invoice_date: "Rechnungsdatum"
