@@ -27,7 +27,7 @@ class CategoriesController < ApplicationController
     if @category.save
       @category.addribude = []
       if defined? params[:attributes].values
-        params[:attributes].values.each do |attribute_id| #FIXME if no attributes
+        params[:attributes].values.each do |attribute_id|
           @category.addribude << Attribute.find(attribute_id)
         end
       end
@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
     if @category.update(category_params)
       @category.addribude = []
       if defined? params[:attributes].values
-        params[:attributes].values.each do |attribute_id| #FIXME if no attributes
+        params[:attributes].values.each do |attribute_id|
           @category.addribude << Attribute.find(attribute_id)
         end
       end
