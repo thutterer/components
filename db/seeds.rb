@@ -20,6 +20,7 @@ category = Category.create([{title: 'PC'}, {title: 'Beamer'}, {title: 'Beamer'}]
 Role.create(name: "Admin")
 Role.create(name: "Systembetreuer")
 Role.create(name: "Lehrer")
+Role.create(name: "Gast")
 
 Component.create(title:"Cooler Computer", supplier: suppliers.first, room: rooms.first, category: category.first)
 Component.create(title:"Druckender Drucker", supplier: suppliers[1..3].sample, room: rooms[1..3].sample, category: category[1..3].sample)

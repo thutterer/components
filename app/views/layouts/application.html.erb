@@ -38,6 +38,16 @@
 </div>
 <% end%>
 <div id="content">
+
+  <% if flash.any? %>
+      <div class="alert alert-danger">
+        <ul>
+        <% flash.each do |key, value| %>
+            <li><%= value %></li>
+        <% end %>
+        </ul>
+      </div>
+  <% end %>
   <%= yield %>
 </div>
 
