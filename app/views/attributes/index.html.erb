@@ -3,42 +3,44 @@
     <td width="75"><%= image_tag("attributesXL.png", :alt => "room") %></td>
     <td><h4><strong><%= t('attributes') %></strong></h4></td>
   </tr>
-  </table><br/>
+</table><br/>
 
- <%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_attribute'), new_attribute_path, :class => "btn btn-primary" %><br /><br />
-
+<%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_attribute'), new_attribute_path, :class => "btn btn-primary" %><br /><br />
+<div>
+  <%= will_paginate @attributes, renderer: BootstrapPagination::Rails %>
+</div><br><br>
 
 <div class="panel panel-primary">
   <div class="panel-heading">
     <strong><%= t('attributes') %> <span class="badge"><%= @attributes.count %></span> </strong>
   </div>
-    <% if @attributes.count == 0 %>
-    <div class="panel-body">
-      <%= t('no_attributes')%>
-    </div>
-    <% else %>
-    <table class="table table-hover table-striped">
-      <thead>
-       <tr>
-         <th width="350"><%= t('title') %></th>
-         <th></th>
-       </tr>
-      </thead>
-      <tbody>
-      <% @attributes.each do |attribute| %>
-          <tr>
-            <td><%= attribute.title %></td>
-            <td>
-              <%= link_to image_tag("editS.png", :rel => "tooltip", :title => t('edit')), edit_attribute_path(attribute) %>
-              <%= link_to image_tag("deleteS.png", :rel => "tooltip", :title => t('delete')), attribute_path(attribute),
+  <% if @attributes.count == 0 %>
+      <div class="panel-body">
+        <%= t('no_attributes')%>
+      </div>
+  <% else %>
+      <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+          <th width="350"><%= t('title') %></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @attributes.each do |attribute| %>
+            <tr>
+              <td><%= attribute.title %></td>
+              <td>
+                <%= link_to image_tag("editS.png", :rel => "tooltip", :title => t('edit')), edit_attribute_path(attribute) %>
+                <%= link_to image_tag("deleteS.png", :rel => "tooltip", :title => t('delete')), attribute_path(attribute),
                             method: :delete,
                             data: { confirm: t('are_you_sure') } %>
-            </td>
-          </tr>
-      <% end %>
-      </tbody>
-    </table>
-    <% end %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
 </div>
 
 

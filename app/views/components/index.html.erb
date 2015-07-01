@@ -4,17 +4,19 @@
     <td><h4><strong><%= t('components') %></strong></h4></td>
   </tr>
 </table><br />
-
-<%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_component'), new_component_path, :class => "btn btn-primary" %><br /><br />
-
+<%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_component'), new_component_path, :class => "btn btn-primary" %>
+<div>
+<%= will_paginate @components, renderer: BootstrapPagination::Rails %>
+</div><br><br>
 <div class="panel panel-primary">
   <div class="panel-heading">
     <strong>Komponenten <span class="badge"><%= @components.count %></span></strong>
+
   </div>
   <% if @components.count == 0 %>
-  <div class="panel-body">
-    Es wurden bisher noch keine Komponenten eingetragen.
-  </div>
+      <div class="panel-body">
+        Es wurden bisher noch keine Komponenten eingetragen.
+      </div>
   <% else %>
   <table class="table table-hover table-striped">
     <thead>
@@ -37,17 +39,18 @@
               <td><%= component.supplier.title %></td>
               <td>
                 <%= link_to image_tag("editS.png"), edit_component_path(component),
-                              :rel => "tooltip",
-                              :title => t('edit') %>
+                            :rel => "tooltip",
+                            :title => t('edit') %>
                 <%= link_to image_tag("deleteS.png"), component_path(component),
-                              :rel => "tooltip",
-                              :title => t('delete'),
-                              method: :delete,
-                              data: { confirm: t('are_you_sure') } %>
+                            :rel => "tooltip",
+                            :title => t('delete'),
+                            method: :delete,
+                            data: { confirm: t('are_you_sure') } %>
               </td>
             </tr>
         <% end %>
-    </tbody>
-  </table>
+        </tbody>
+      </table>
   <% end %>
 </div>
+
