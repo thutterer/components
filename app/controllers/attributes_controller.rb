@@ -1,8 +1,6 @@
 class AttributesController < ApplicationController
   before_filter :authenticate_user!
 
-  http_basic_authenticate_with name: 'admin', password: 'admin', except: [:index]
-
   def index
     @attributes = Attribute.all
   end
