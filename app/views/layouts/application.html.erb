@@ -20,40 +20,45 @@
       <%= link_to image_tag('loginM.png', { :title => t('login') }), new_user_session_path, :class => 'navbar-link'  %>
   <% end %>
 
-<div id="header">
-  <%= image_tag("logo.png", :alt => "logo") %>
-</div>
-<% if current_user %>
+  <div id="header">
+    <%= image_tag("logo.png", :alt => "logo") %>
+  </div>
+  <% if current_user %>
 
-<div id="navigation">
-  <ul class="nav nav-pills" role="tablist">
-    <li role="presentation"><a href="/components"><%= t('components') %></a></li>
-    <li role="presentation"><a href="/categories"><%= t('categories') %></a></li>
-    <li role="presentation"><a href="/rooms"><%= t('rooms') %></a></li>
-    <li role="presentation"><a href="/suppliers"><%= t('suppliers') %></a></li>
-    <li role="presentation"><a href="/attributes"><%= t('attributes') %></a></li>
-    <!-- <li role="presentation"><a href="/users"><%= t('users') %></a></li>
+      <div id="navigation">
+        <ul class="nav nav-pills" role="tablist">
+          <li role="presentation"><a href="/components"><%= t('components') %></a></li>
+          <li role="presentation"><a href="/categories"><%= t('categories') %></a></li>
+          <li role="presentation"><a href="/rooms"><%= t('rooms') %></a></li>
+          <li role="presentation"><a href="/suppliers"><%= t('suppliers') %></a></li>
+          <li role="presentation"><a href="/attributes"><%= t('attributes') %></a></li>
+          <% if current_user.role.name == "Admin" %>
+              <!-- #TODO: replace with .admin? later -->
+              <li role="presentation"><a <%= link_to "AdminArea", users_path%></a></li>
+          <% end %>
+
+          <!-- <li role="presentation"><a href="/users"><%= t('users') %></a></li>
     -->
-  </ul>
-</div>
-<% end%>
-<div id="content">
-
-  <% if flash.any? %>
-      <div class="alert alert-info">
-        <ul>
-        <% flash.each do |key, value| %>
-            <li><%= value %></li>
-        <% end %>
         </ul>
       </div>
-  <% end %>
-  <%= yield %>
-</div>
+  <% end%>
+  <div id="content">
 
-<div id="footer">
-   <%= link_to("GitHub Project", "https://github.com/thutterer/components", { :target => "_blank" }) %>
-</div>
+    <% if flash.any? %>
+        <div class="alert alert-info">
+          <ul>
+            <% flash.each do |key, value| %>
+                <li><%= value %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <%= yield %>
+  </div>
 
-</body>
+  <div id="footer">
+    <%= link_to("GitHub Project", "https://github.com/thutterer/components", { :target => "_blank" }) %>
+  </div>
+
+  </body>
 </html>
