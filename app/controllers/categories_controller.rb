@@ -47,6 +47,24 @@ class CategoriesController < ApplicationController
           @category.addribude << Attribute.find(attribute_id)
         end
       end
+      # the following would be better as a ActiveRecord callback !
+      @active_attribute_ids = []
+      @existing_attribute_ids = []
+      @category.addribude.each do |a| @active_attribute_ids << a.id end
+      Component.where(category: @category.id).each do |component|
+        ComponentAttributeValue.where(component_id: component.id).each do |cav|
+          # remove values of detached attributes
+          if @active_attribute_ids.exclude? cav.attribute_id
+            cav.destroy
+          else
+            @existing_attribute_ids << cav.attribute_id
+          end
+        end
+        # add values for newly attached attributes
+        (@active_attribute_ids - @existing_attribute_ids).each do |missing_attribute_id|
+          ComponentAttributeValue.create(component_id: component.id, attribute_id: missing_attribute_id, value: '')
+        end
+      end
       redirect_to @category
     else
       render 'edit'
