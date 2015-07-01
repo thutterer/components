@@ -4,4 +4,5 @@ class Category < ActiveRecord::Base
   has_and_belongs_to_many :addribude, class_name: "Attribute"
 
   validates :title, presence: true
+  validates :title, uniqueness: true
 end
