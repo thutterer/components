@@ -3,8 +3,8 @@ class Component < ActiveRecord::Base
   belongs_to :room
   belongs_to :supplier
 
-  validates :title, presence: true
-  validates :category_id, presence: true
-  validates :room_id, presence: true
-  validates :supplier_id, presence: true
+  validates :title, presence: {message: :bad_blank}
+  validates :category_id, presence: {message: :no_category}
+  validates :room_id, presence: {message: :no_room}
+  validates :supplier_id, presence: {message: :no_supplier}
 end
