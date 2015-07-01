@@ -12,7 +12,11 @@
   <table class="table table-hover table-striped">
     <tbody>
      <tr>
-       <td width="200"><strong><%= t('category')%></strong></td>
+       <td width="200"><strong><%= t('quantity')%></strong></td>
+       <td><%= @component.quantity %></td>
+     </tr>
+     <tr>
+       <td><strong><%= t('category')%></strong></td>
        <td><%= @component.category.title %></td>
      </tr>
      <tr>
