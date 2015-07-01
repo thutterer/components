@@ -37,3 +37,31 @@ de:
   password_confirm: "Passwort bestätigen"
   chars: "Zeichen"
   general_settings: "Allgemeine Einstellungen"
+  activerecord:
+    errors:
+      models:
+        attribute:
+          attributes:
+            title:
+              bad_taken: ": Das eingegebene Attribut existiert bereits."
+              bad_blank: ": Bitte Titel eingeben."
+        component:
+          attributes:
+            title:
+              bad_blank: ": Bitte Titel eingeben."
+            category_id:
+              no_category: ": Bitte Kategorie wählen."
+            room_id:
+              no_room: ": Bitte Raum wählen."
+            supplier_id:
+              no_supplier: ": Bitte Lieferanten wählen."
+        room:
+          attributes:
+            title:
+              bad_blank: ": Bitte Raum eingeben."
+              bad_taken: ": Der eingegebener Raum existiert bereits."
+        supplier:
+          attributes:
+            title:
+              bad_blank: ": Bitte Lieferanten eingeben."
+              bad_taken: ": Der eingegebener Lieferant existiert bereits."

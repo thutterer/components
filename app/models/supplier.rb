@@ -1,4 +1,4 @@
 class Supplier < ActiveRecord::Base
-  validates :title, presence: true
-  validates :title, uniqueness: true
+  validates :title, presence: {message: :bad_blank}
+  validates :title, uniqueness: {message: :bad_taken}
 end
