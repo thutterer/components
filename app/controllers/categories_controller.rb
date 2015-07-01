@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
+  skip_load_resource :only => [:create]
 
   def index
     @categories = Category.all
@@ -50,7 +52,6 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-
     redirect_to categories_path
   end
 
