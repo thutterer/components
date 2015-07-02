@@ -31,6 +31,13 @@
   <% end %>
 </div>
 
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <strong> <%= t('components') %> </strong>
+  </div>
+  <%= render 'shared/components', components: @category.components %>
+</div>
+
 <%= link_to t('edit'), edit_category_path(@category), :class => "btn btn-primary"  %>
 <%= link_to t('delete'), category_path(@category),
             method: :delete,
