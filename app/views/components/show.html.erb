@@ -24,6 +24,13 @@
        <td><%= if defined? @component.invoice.strftime then @component.invoice.strftime("%d.%m.%Y") else '' end %></td>
      </tr>
      <tr>
+       <td><strong><%= t('warranty_date')%></strong></td>
+       <td><%= if defined? @component.warranty.strftime then @component.warranty.strftime("%d.%m.%Y") else '' end %><br>
+       <% if !@component.warranty.nil? %>
+             <%= "#{t('still')} #{(@component.warranty - Time.now.to_date).to_i} #{t('time_left')}"%>
+       <% end %></td>
+     </tr>
+     <tr>
        <td><strong><%= t('room')%></strong></td>
        <td><%= @component.room.title %></td>
      </tr>

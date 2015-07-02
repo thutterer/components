@@ -57,6 +57,23 @@
           </script>
         </div>
         <div class="form-group">
+          <%= f.label :warranty, :value => t('warranty_date') %>
+          <div class='input-group date' id='warranty_datetimepicker'>
+            <input type='text' class="form-control" name='component[warranty]' value='<%= if defined? @component.warranty.strftime then @component.warranty.strftime("%d.%m.%Y") else '' end %>' />
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+          <script type="text/javascript">
+              $(function () {
+                  $('#warranty_datetimepicker').datetimepicker({
+                      locale: 'de',
+                      format: 'DD.MM.YYYY'
+                  });
+              });
+          </script>
+        </div>
+        <div class="form-group">
           <%= f.label :room_id, :value => t('room') %>
           <%= f.collection_select :room_id, @rooms, :id, :title, { prompt: true }, { class: 'form-control' } %>
           <!-- FIXME if no rooms.... probably also categories!!! -->

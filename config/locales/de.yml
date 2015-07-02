@@ -78,3 +78,6 @@ de:
               bad_taken: ": Der eingegebener Lieferant existiert bereits."
 
   invoice_date: "Rechnungsdatum"
+  warranty_date: "Garantiedatum"
+  still: "Noch"
+  time_left: " Tage Garantie"
