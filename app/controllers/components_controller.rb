@@ -59,8 +59,10 @@ class ComponentsController < ApplicationController
     @component = Component.find(params[:id])
 
     if @component.update(component_params)
-      params[:values].each do |id, attribute_value|
-        ComponentAttributeValue.find(id).update(value: attribute_value)
+      if defined? params[:values].each
+        params[:values].each do |id, attribute_value|
+          ComponentAttributeValue.find(id).update(value: attribute_value)
+        end
       end
       redirect_to action: 'index'
       flash[:info] = t('edit_success')
