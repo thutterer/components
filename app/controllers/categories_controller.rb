@@ -5,9 +5,9 @@ class CategoriesController < ApplicationController
 
   def index
     if params[:search_title]
-      @categories = Category.search_title(params['search_title']).order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
+      @categories = Category.search_title(params['search_title']).order(:title).paginate(:per_page => 10, :page => params[:page])
     else
-      @categories = Category.all.order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
+      @categories = Category.order(:title).paginate(:per_page => 10, :page => params[:page])
     end
   end
 
@@ -17,12 +17,12 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
-    @attributes = Attribute.all
+    @attributes = Attribute.order(:title)
   end
 
   def edit
     @category = Category.find(params[:id])
-    @attributes = Attribute.all
+    @attributes = Attribute.order(:title)
   end
 
   def create

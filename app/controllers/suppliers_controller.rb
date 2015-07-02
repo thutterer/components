@@ -5,9 +5,9 @@ class SuppliersController < ApplicationController
 
   def index
     if params[:search_title]
-      @suppliers = Supplier.search_title(params['search_title']).order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
+      @suppliers = Supplier.search_title(params['search_title']).order(:title).paginate(:per_page => 10, :page => params[:page])
     else
-      @suppliers = Supplier.all.order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
+      @suppliers = Supplier.order(:title).paginate(:per_page => 10, :page => params[:page])
     end
   end
 

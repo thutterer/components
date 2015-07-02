@@ -6,9 +6,9 @@ class ComponentsController < ApplicationController
 
   def index
     if params[:search_title]
-      @components = Component.search_title(params['search_title']).order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
+      @components = Component.search_title(params['search_title']).order(:title).paginate(:per_page => 10, :page => params[:page])
     else
-      @components = Component.all.order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
+      @components = Component.order(:title).paginate(:per_page => 10, :page => params[:page])
     end
   end
 
@@ -21,18 +21,18 @@ class ComponentsController < ApplicationController
   def new
     @component = Component.new(quantity: 1, invoice: Time.now, warranty: Time.now)
     @components = Component.order(:title)
-    @categories = Category.all
-    @rooms = Room.all
-    @suppliers = Supplier.all
+    @categories = Category.order(:title)
+    @rooms = Room.order(:title)
+    @suppliers = Supplier.order(:title)
   end
 
   def edit
     @component = Component.find(params[:id])
     @components = Component.order(:title)
-    @categories = Category.all
-    @rooms = Room.all
-    @suppliers = Supplier.all
-    @attributes = Attribute.all
+    @categories = Category.order(:title)
+    @rooms = Room.order(:title)
+    @suppliers = Supplier.order(:title)
+    @attributes = Attribute.order(:title)
     @attribute_values = ComponentAttributeValue.where(component_id: @component.id)
   end
 
@@ -46,9 +46,9 @@ class ComponentsController < ApplicationController
       redirect_to action: 'edit', id: @component.id
       flash[:info] = t('new_component_success')
     else
-      @categories = Category.all
-      @rooms = Room.all
-      @suppliers = Supplier.all
+      @categories = Category.order(:title)
+      @rooms = Room.order(:title)
+      @suppliers = Supplier.order(:title)
       render 'new'
     end
   end
@@ -65,9 +65,9 @@ class ComponentsController < ApplicationController
       redirect_to @component
       flash[:info] = t('edit_success')
     else
-      @categories = Category.all
-      @rooms = Room.all
-      @suppliers = Supplier.all
+      @categories = Category.order(:title)
+      @rooms = Room.order(:title)
+      @suppliers = Supplier.order(:title)
       render 'edit'
     end
   end

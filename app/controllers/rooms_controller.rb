@@ -5,9 +5,9 @@ class RoomsController < ApplicationController
 
   def index
     if params[:search_title]
-      @rooms = Room.search_title(params['search_title']).order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
+      @rooms = Room.search_title(params['search_title']).order(:title).paginate(:per_page => 10, :page => params[:page])
     else
-      @rooms = Room.all.order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
+      @rooms = Room.order(:title).paginate(:per_page => 10, :page => params[:page])
     end
   end
 

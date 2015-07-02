@@ -10,7 +10,7 @@
   </tr>
   </thead>
   <tbody>
-  <% components.each do |component| %>
+  <% components.order(:title).each do |component| %>
       <tr>
         <td><%= link_to component.title, component_path(component) %></td>
         <td><%= component.quantity %></td>
