@@ -4,10 +4,16 @@
 }
 
 #navigation {
-    background-color: #292929;
+    /* background-color: #292929; */
+    background-color: #000000;
     padding: 2pt;
     text-align: center;
     margin: 0px auto;
+}
+
+#navigation-fake {
+    background-color: #000000;
+    height: 45px;
 }
 
 #navigation a:link {
@@ -38,4 +44,24 @@
     padding-top: 5px;
     border-top: 1px solid #000;
     text-align: center;
+}
+
+.landing-item {
+    background-color: #416185;
+    border-radius: 5px;
+    padding: 10pt;
+    color: #ffffff;
+}
+
+.landing-item-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.landing-item-title a {
+    color: #ffffff;
+}
+
+.landing-item-desc {
+    font-size: 13px;
 }
