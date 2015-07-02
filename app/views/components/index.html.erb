@@ -47,9 +47,9 @@
             <tr>
               <td><%= link_to component.title, component_path(component) %></td>
               <td><%= component.quantity %></td>
-              <td><%= component.category.title %></td>
-              <td><%= component.room.title %></td>
-              <td><%= component.supplier.title %></td>
+              <td><%= link_to component.category.title, category_path(component.category) %></td>
+              <td><%= link_to component.room.title, room_path(component.room) %></td>
+              <td><%= link_to component.supplier.title, supplier_path(component.supplier) %></td>
               <td>
                 <%= link_to image_tag("editS.png"), edit_component_path(component),
                             :rel => "tooltip",
