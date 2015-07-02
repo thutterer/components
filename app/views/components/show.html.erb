@@ -58,4 +58,8 @@
 </div>
 
 <%= link_to t('edit'), edit_component_path(@component), class: "btn btn-primary" %>
+<%= link_to t('delete'), component_path(@component),
+            method: :delete,
+            data: { confirm: t('are_you_sure') },
+            class: "btn btn-danger" %>
 <%= link_to t('back'), components_path, class: "btn btn-default" %>

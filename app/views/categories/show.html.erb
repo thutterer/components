@@ -32,4 +32,8 @@
 </div>
 
 <%= link_to t('edit'), edit_category_path(@category), :class => "btn btn-primary"  %>
+<%= link_to t('delete'), category_path(@category),
+            method: :delete,
+            data: { confirm: t('are_you_sure') },
+            class: "btn btn-danger" %>
 <%= link_to t('back'), categories_path, :class => "btn btn-default" %>
