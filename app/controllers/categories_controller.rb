@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   skip_load_resource :only => [:create]
 
   def index
-    @categories = Category.paginate(:page => params[:page], :per_page => 5)
+    @categories = Category.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

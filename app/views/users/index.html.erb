@@ -40,4 +40,4 @@
   <% end %>
 </div><br />
 
-<%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+<%= will_paginate @users, :previous_label => t('back'), :next_label => t('next'), renderer: BootstrapPagination::Rails %>

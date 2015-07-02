@@ -4,7 +4,7 @@ class RoomsController < ApplicationController
   skip_load_resource :only => [:create]
 
   def index
-    @rooms = Room.paginate(:page => params[:page], :per_page => 5)
+    @rooms = Room.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

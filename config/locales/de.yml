@@ -48,6 +48,7 @@ de:
   new_password: "Neues Passwort"
   confirm_new_password: "Neues Passwort bestätigen"
   current_password: "Aktuelles Passwort"
+  next: "Weiter"
   activerecord:
     errors:
       models:
