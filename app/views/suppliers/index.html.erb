@@ -26,7 +26,7 @@
       <tbody>
       <% @suppliers.each do |supplier| %>
           <tr>
-            <td><%= supplier.title %></td>
+            <td><%= link_to supplier.title, supplier_path(supplier) %></td>
             <td>
               <%= link_to image_tag("editS.png", :rel => "tooltip", :title => t('edit')), edit_supplier_path(supplier) %>
               <%= link_to image_tag("deleteS.png", :rel => "tooltip", :title => t('delete')), supplier_path(supplier),
