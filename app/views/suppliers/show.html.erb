@@ -1,0 +1,14 @@
+<p>
+  <strong><%= t('title') %></strong>
+  <%= @supplier.title %>
+</p>
+
+<p>
+  <% @supplier.components.each do |component| %>
+    <%= component.title %><br>
+  <% end %>
+</p>
+
+<%= link_to t('edit'), edit_supplier_path(@supplier) %> |
+<%= link_to t('back'), suppliers_path %>
+

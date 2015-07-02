@@ -26,7 +26,7 @@
       <tbody>
       <% @rooms.each do |room| %>
           <tr>
-            <td><%= room.title %></td>
+            <td><%= link_to room.title, room_path(room) %></td>
             <td>
               <%= link_to image_tag("editS.png", :rel => "tooltip", :title => t('edit')), edit_room_path(room) %>
               <%= link_to image_tag("deleteS.png", :rel => "tooltip", :title => t('delete')), room_path(room),
