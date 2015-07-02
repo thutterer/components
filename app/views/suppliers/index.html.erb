@@ -5,20 +5,7 @@
   </tr>
 </table><br />
 
-<%= form_tag(suppliers_path, :method => "get", id: "search-form") do %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <a onclick="display_search();" href="#" id="display_search"><img src="images/plusM.png" id="search-display-icon"><strong> Suche </strong></a>
-      </div>
-      <div class="panel-body" id="search-container" style="display: none;">
-        <div class="form-group">
-          <%= text_field_tag :search_title, params[:search], placeholder: t('title'), class: "form-control" %>
-        </div>
-
-        <%= submit_tag t('search'), :name => nil, :class => "btn btn-primary"  %>
-      </div>
-    </div>
-<% end %>
+<%= render 'shared/searchbar', index_path: suppliers_path %>
 
 <%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_supplier'), new_supplier_path, :class => "btn btn-primary" %><br /><br />
 
