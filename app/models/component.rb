@@ -13,6 +13,7 @@ class Component < ActiveRecord::Base
   validates :supplier_id, presence: {message: :no_supplier}
 
 
+  # TODO http://stackoverflow.com/a/9172936
   def self.search_title(query)
     where("title like ?", "%#{query}%")
   end

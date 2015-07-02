@@ -4,7 +4,11 @@ class CategoriesController < ApplicationController
   skip_load_resource :only => [:create]
 
   def index
-    @categories = Category.paginate(:page => params[:page], :per_page => 10)
+    if params[:search_title]
+      @categories = Category.search_title(params['search_title']).order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
+    else
+      @categories = Category.all.order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
+    end
   end
 
   def show
