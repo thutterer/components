@@ -54,6 +54,7 @@ de:
   still: "Noch"
   time_left: " Tage Garantie"
   user_management: "Benutzerverwaltung"
+  search: "Suche"
   activerecord:
     errors:
       models:
