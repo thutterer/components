@@ -1,14 +1,28 @@
-<p>
-  <strong><%= t('title') %></strong>
-  <%= @supplier.title %>
-</p>
+<table border="0">
+  <tr>
+    <td width="75"><%= image_tag("supplierXL.png", :alt => "supplier") %></td>
+    <td><h4><strong><%= t('supplier') %>: <%= @supplier.title %></strong></h4></td>
+  </tr>
+</table><br />
 
-<p>
-  <% @supplier.components.each do |component| %>
-    <%= component.title %><br>
-  <% end %>
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <strong> <%= t('components') %> </strong>
+  </div>
+  <table class="table table-hover table-striped">
+    <tbody>
+    <% @supplier.components.each do |component| %>
+        <tr>
+          <td width="200"><%= link_to component.title, component_path(component) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to t('edit'), edit_supplier_path(@supplier) %> |
-<%= link_to t('back'), suppliers_path %>
-
+<%= link_to t('edit'), edit_supplier_path(@supplier), class: "btn btn-primary" %>
+<%= link_to t('delete'), supplier_path(@supplier),
+            method: :delete,
+            data: { confirm: t('are_you_sure') },
+            class: "btn btn-danger" %>
+<%= link_to t('back'), suppliers_path, class: "btn btn-default" %>

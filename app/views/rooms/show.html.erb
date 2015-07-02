@@ -1,14 +1,28 @@
-<p>
-  <strong><%= t('title') %></strong>
-  <%= @room.title %>
-</p>
+<table border="0">
+  <tr>
+    <td width="75"><%= image_tag("roomXL.png", :alt => "room") %></td>
+    <td><h4><strong><%= t('room') %>: <%= @room.title %></strong></h4></td>
+  </tr>
+</table><br />
 
-<p>
-  <% @room.components.each do |component| %>
-    <%= component.title %><br>
-  <% end %>
-</p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <strong> <%= t('room') %> </strong>
+  </div>
+  <table class="table table-hover table-striped">
+    <tbody>
+    <% @room.components.each do |component| %>
+        <tr>
+          <td width="200"><%= link_to component.title, component_path(component) %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to t('edit'), edit_room_path(@room) %> |
-<%= link_to t('back'), rooms_path %>
-
+<%= link_to t('edit'), edit_room_path(@room), class: "btn btn-primary" %>
+<%= link_to t('delete'), room_path(@room),
+            method: :delete,
+            data: { confirm: t('are_you_sure') },
+            class: "btn btn-danger" %>
+<%= link_to t('back'), rooms_path, class: "btn btn-default" %>
