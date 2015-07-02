@@ -44,6 +44,10 @@ de:
   login: "Anmelden"
   edit_user: "Benutzer bearbeiten"
   users: "Benutzer"
+  cancel_account: "Account löschen"
+  new_password: "Neues Passwort"
+  confirm_new_password: "Neues Passwort bestätigen"
+  current_password: "Aktuelles Passwort"
   activerecord:
     errors:
       models:
