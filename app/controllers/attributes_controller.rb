@@ -4,7 +4,11 @@ class AttributesController < ApplicationController
   skip_load_resource :only => [:create]
 
   def index
-    @attributes = Attribute.paginate(:page => params[:page], :per_page => 10)
+    if params[:search_title]
+      @attributes = Attribute.search_title(params['search_title']).order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
+    else
+      @attributes = Attribute.all.order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
+    end
   end
 
   # def show
