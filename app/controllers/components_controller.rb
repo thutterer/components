@@ -5,7 +5,11 @@ class ComponentsController < ApplicationController
 
 
   def index
-    @components = Component.paginate(:page => params[:page], :per_page => 10)
+    if params[:search_title]
+      @components = Component.search_title(params['search_title']).order("created_at DESC").paginate(:per_page => 10, :page => params[:page])
+    else
+      @components = Component.all.order('created_at DESC').paginate(:per_page => 10, :page => params[:page])
+    end
   end
 
   def show
