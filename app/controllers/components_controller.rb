@@ -46,6 +46,7 @@ class ComponentsController < ApplicationController
       redirect_to action: 'edit', id: @component.id
       flash[:info] = t('new_component_success')
     else
+      @components = Component.order(:title)
       @categories = Category.order(:title)
       @rooms = Room.order(:title)
       @suppliers = Supplier.order(:title)
@@ -65,6 +66,7 @@ class ComponentsController < ApplicationController
       redirect_to @component
       flash[:info] = t('edit_success')
     else
+      @components = Component.order(:title)
       @categories = Category.order(:title)
       @rooms = Room.order(:title)
       @suppliers = Supplier.order(:title)
