@@ -49,6 +49,10 @@ de:
   confirm_new_password: "Neues Passwort bestätigen"
   current_password: "Aktuelles Passwort"
   next: "Weiter"
+  invoice_date: "Rechnungsdatum"
+  warranty_date: "Garantiedatum"
+  still: "Noch"
+  time_left: " Tage Garantie"
   activerecord:
     errors:
       models:
@@ -81,8 +85,7 @@ de:
             title:
               bad_blank: ": Bitte Lieferanten eingeben."
               bad_taken: ": Der eingegebener Lieferant existiert bereits."
-
-  invoice_date: "Rechnungsdatum"
-  warranty_date: "Garantiedatum"
-  still: "Noch"
-  time_left: " Tage Garantie"
+        category:
+          attributes:
+            title:
+              bad_blank: ": Bitte Lieferanten eingeben."

@@ -25,16 +25,18 @@
         <div class="form-group">
           <%= label_tag t('attributes') %><br />
           <div class="well">
-          <% @attributes.each do |attribute| %>
-              <%= label_tag attribute.title do %>
-                  <% if @category.addribude.include? attribute %>
-                      <%= check_box_tag "attributes[#{attribute.title}]", attribute.id, checked: 'checked' %>
-                  <% else %>
-                      <%= check_box_tag "attributes[#{attribute.title}]", attribute.id %>
-                  <% end %>
-                  <%= label_tag("attributes_" + attribute.title, attribute.title) %>
-              <% end %><br />
-          <% end %>
+            <% if defined? @attributes.each %>
+              <% @attributes.each do |attribute| %>
+                  <%= label_tag attribute.title do %>
+                      <% if @category.addribude.include? attribute %>
+                          <%= check_box_tag "attributes[#{attribute.title}]", attribute.id, checked: 'checked' %>
+                      <% else %>
+                          <%= check_box_tag "attributes[#{attribute.title}]", attribute.id %>
+                      <% end %>
+                      <%= label_tag("attributes_" + attribute.title, attribute.title) %>
+                  <% end %><br />
+              <% end %>
+            <% end %>
           </div>
         </div>
       </div>
