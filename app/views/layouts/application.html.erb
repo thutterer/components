@@ -26,14 +26,13 @@
     <%= link_to image_tag("logo.png", :alt => "logo"), root_path %>
   </div>
   <% if current_user %>
-
       <div id="navigation">
         <ul class="nav nav-pills" role="tablist">
-          <li role="presentation"><a href="/components"><%= t('components') %></a></li>
-          <li role="presentation"><a href="/categories"><%= t('categories') %></a></li>
-          <li role="presentation"><a href="/rooms"><%= t('rooms') %></a></li>
-          <li role="presentation"><a href="/suppliers"><%= t('suppliers') %></a></li>
-          <li role="presentation"><a href="/attributes"><%= t('attributes') %></a></li>
+          <li role="presentation"><%= link_to "Komponenten", components_path %></li>
+          <li role="presentation"><%= link_to "Kategorien", categories_path %></li>
+          <li role="presentation"><%= link_to "Räume", rooms_path %></li>
+          <li role="presentation"><%= link_to "Lieferanten", suppliers_path %></li>
+          <li role="presentation"><%= link_to "Attribute", attributes_path %></li>
           <% if current_user.role.name == "Admin" %>
               <!-- #TODO: replace with .admin? later -->
               <li role="presentation"><%= link_to "Benutzerverwaltung", users_path %></li>

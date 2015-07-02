@@ -4,6 +4,26 @@
 }
 
 #navigation {
+    background-color: #292929;
+    padding: 2pt;
+    text-align: center;
+    margin: 0px auto;
+}
+
+#navigation a:link {
+    color: #ffffff;
+}
+
+#navigation a:active {
+    color: #000000;
+}
+
+#navigation a:visited {
+    color: #ffffff;
+}
+
+#navigation a:hover {
+    color: #000000;
 }
 
 .navbar-text {
