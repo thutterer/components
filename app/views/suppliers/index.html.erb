@@ -6,9 +6,6 @@
 </table><br />
 
 <%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_supplier'), new_supplier_path, :class => "btn btn-primary" %><br /><br />
-<div>
-  <%= will_paginate @suppliers, renderer: BootstrapPagination::Rails %>
-</div><br><br>
 
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -42,4 +39,6 @@
     </table>
     <% end %>
 </div>
+
+<%= will_paginate @suppliers, :previous_label => t('back'), :next_label => t('next'), renderer: BootstrapPagination::Rails %>
 

@@ -5,7 +5,7 @@ class ComponentsController < ApplicationController
 
 
   def index
-    @components = Component.paginate(:page => params[:page], :per_page => 5)
+    @components = Component.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show

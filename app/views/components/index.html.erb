@@ -4,14 +4,12 @@
     <td><h4><strong><%= t('components') %></strong></h4></td>
   </tr>
 </table><br />
-<%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_component'), new_component_path, :class => "btn btn-primary" %>
-<div>
-<%= will_paginate @components, renderer: BootstrapPagination::Rails %>
-</div><br><br>
+
+<%= link_to image_tag("addM.png", :alt => "add") + " " + t('new_component'), new_component_path, :class => "btn btn-primary" %><br /><br />
+
 <div class="panel panel-primary">
   <div class="panel-heading">
     <strong>Komponenten <span class="badge"><%= @components.count %></span></strong>
-
   </div>
   <% if @components.count == 0 %>
       <div class="panel-body">
@@ -54,3 +52,4 @@
   <% end %>
 </div>
 
+<%= will_paginate @components, :previous_label => t('back'), :next_label => t('next'), renderer: BootstrapPagination::Rails %>

@@ -4,7 +4,7 @@ class AttributesController < ApplicationController
   skip_load_resource :only => [:create]
 
   def index
-    @attributes = Attribute.paginate(:page => params[:page], :per_page => 5)
+    @attributes = Attribute.paginate(:page => params[:page], :per_page => 10)
   end
 
   # def show
