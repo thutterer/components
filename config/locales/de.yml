@@ -18,7 +18,7 @@ de:
   show: "Anzeigen"
   edit: "Bearbeiten"
   delete: "Löschen"
-  are_you_sure: "Sind Sie sicher?"
+  are_you_sure: "ACHTUNG: Es werden auch alle Komponenten gelöscht, die sich auf diesen Eintrag beziehen.\nSind Sie sicher?"
   title: "Bezeichnung"
   quantity: "Anzahl"
   room: "Raum"
