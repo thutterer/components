@@ -9,15 +9,7 @@
   <div class="panel-heading">
     <strong> <%= t('components') %> </strong>
   </div>
-  <table class="table table-hover table-striped">
-    <tbody>
-    <% @supplier.components.each do |component| %>
-        <tr>
-          <td width="200"><%= link_to component.title, component_path(component) %></td>
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
+  <%= render 'shared/components', components: @supplier.components %>
 </div>
 
 <%= link_to t('edit'), edit_supplier_path(@supplier), class: "btn btn-primary" %>
