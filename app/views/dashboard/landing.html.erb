@@ -1,78 +1,90 @@
 <table border="0" align="center">
   <tr>
     <td style="width:350px;padding-right:20px;padding-bottom:20px;">
-      <div class="landing-item">
-        <table border="0">
-          <tr>
-            <td width="150"><%= link_to image_tag("componentsXXL.png"), components_path %></td>
-            <td>
-              <div class="landing-item-title"><%= link_to t('components'), components_path %></div>
-            </td>
-          </tr>
-        </table>
-      </div>
+      <%= link_to components_path do %>
+        <div class="landing-item">
+          <table border="0">
+            <tr>
+              <td width="150"><%= image_tag("componentsXXL.png") %></td>
+              <td>
+                <div class="landing-item-title"><%= t('components') %></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
     </td>
     <td style="width:350px;padding-right:20px;padding-bottom:20px;">
-      <div class="landing-item">
-        <table border="0">
-          <tr>
-            <td width="150"><%= link_to image_tag("categoriesXXL.png"), categories_path %></td>
-            <td>
-              <div class="landing-item-title"><%= link_to t('categories'), categories_path %></div>
-            </td>
-          </tr>
-        </table>
-      </div>
+      <%= link_to categories_path do %>
+        <div class="landing-item">
+          <table border="0">
+            <tr>
+              <td width="150"><%= image_tag("categoriesXXL.png") %></td>
+              <td>
+                <div class="landing-item-title"><%= t('categories') %></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
     </td>
     <td style="width:350px;padding-bottom:20px;">
-      <div class="landing-item">
-        <table border="0">
-          <tr>
-            <td width="150"><%= link_to image_tag("roomsXXL.png"), rooms_path %></td>
-            <td>
-              <div class="landing-item-title"><%= link_to t('rooms'), rooms_path %></div>
-            </td>
-          </tr>
-        </table>
-      </div>
+      <%= link_to rooms_path do %>
+        <div class="landing-item">
+          <table border="0">
+            <tr>
+              <td width="150"><%= link_to image_tag("roomsXXL.png"), rooms_path %></td>
+              <td>
+                <div class="landing-item-title"><%= link_to t('rooms'), rooms_path %></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
     </td>
   </tr>
   <tr>
     <td style="width:350px;padding-right:20px;">
-      <div class="landing-item">
-        <table border="0">
-          <tr>
-            <td width="150"><%= link_to image_tag("supplierXXL.png"), suppliers_path %></td>
-            <td>
-              <div class="landing-item-title"><%= link_to t('suppliers'), suppliers_path %></div>
-            </td>
-          </tr>
-        </table>
-      </div>
+      <%= link_to suppliers_path do %>
+        <div class="landing-item">
+          <table border="0">
+            <tr>
+              <td width="150"><%= image_tag("supplierXXL.png") %></td>
+              <td>
+                <div class="landing-item-title"><%= t('suppliers') %></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
     </td>
     <td style="width:350px;padding-right:20px;">
-      <div class="landing-item">
-        <table border="0">
-          <tr>
-            <td width="150"><%= link_to image_tag("attributesXXL.png"), attributes_path %></td>
-            <td>
-              <div class="landing-item-title"><%= link_to t('attributes'), attributes_path %></div>
-            </td>
-          </tr>
-        </table>
-      </div>
+      <%= link_to attributes_path do %>
+        <div class="landing-item">
+          <table border="0">
+            <tr>
+              <td width="150"><%= image_tag("attributesXXL.png") %></td>
+              <td>
+                <div class="landing-item-title"><%= t('attributes') %></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
     </td>
     <td style="width:350px;">
-      <div class="landing-item">
-        <table border="0">
-          <tr>
-            <td width="150"><%= link_to image_tag("usersXXL.png"), users_path %></td>
-            <td>
-              <div class="landing-item-title"><%= link_to t('user_management'), users_path %></div>
-            </td>
-          </tr>
-        </table>
-      </div>
+      <%= link_to users_path do %>
+        <div class="landing-item">
+          <table border="0">
+            <tr>
+              <td width="150"><%= image_tag("usersXXL.png") %></td>
+              <td>
+                <div class="landing-item-title"><%= t('user_management') %></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
     </td>
   </tr>
 </table>
