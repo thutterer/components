@@ -100,3 +100,6 @@ de:
   new_room_success: "Neuen Raum erfolgreich erstellt."
   new_supplier_success: "Neuen Lieferanten erfolgreich erstellt."
   new_category_success: "Neue Kategorie erfolgreich erstellt."
+  built_in: "Installiert in"
+  updated_at: "Letzte Änderung"
+  built_ins: "Verbaute Komponenten"

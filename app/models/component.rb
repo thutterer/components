@@ -2,6 +2,8 @@ class Component < ActiveRecord::Base
   belongs_to :category
   belongs_to :room
   belongs_to :supplier
+  belongs_to :component
+  has_many :components, dependent: :destroy
 
   validates :title, presence: {message: :bad_blank}
   validates :quantity, presence: {message: :bad_blank}

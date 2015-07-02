@@ -17,26 +17,34 @@
      </tr>
      <tr>
        <td><strong><%= t('category')%></strong></td>
-       <td><%= @component.category.title %></td>
-     </tr>
-     <tr>
-       <td><strong><%= t('invoice_date')%></strong></td>
-       <td><%= if defined? @component.invoice.strftime then @component.invoice.strftime("%d.%m.%Y") else '' end %></td>
-     </tr>
-     <tr>
-       <td><strong><%= t('warranty_date')%></strong></td>
-       <td><%= if defined? @component.warranty.strftime then @component.warranty.strftime("%d.%m.%Y") else '' end %><br>
-       <% if !@component.warranty.nil? %>
-             <%= "#{t('still')} #{(@component.warranty - Time.now.to_date).to_i} #{t('time_left')}"%>
-       <% end %></td>
+       <td><%= if defined? @component.category.title then link_to @component.category.title, category_path(@component.category) end %></td>
      </tr>
      <tr>
        <td><strong><%= t('room')%></strong></td>
-       <td><%= @component.room.title %></td>
+       <td><%= if defined? @component.room.title then link_to @component.room.title, room_path(@component.room) end %></td>
+     </tr>
+     <tr>
+       <td><strong><%= t('built_in')%></strong></td>
+       <td><%= if defined? @component.component.title then link_to @component.component.title, component_path(@component.component) end %></td>
      </tr>
      <tr>
        <td><strong><%= t('supplier')%></strong></td>
-       <td><%= @component.supplier.title %></td>
+       <td><%= if defined? @component.supplier.title then link_to @component.supplier.title, supplier_path(@component.supplier) end %></td>
+     </tr>
+     <tr>
+       <td><strong><%= t('invoice_date')%></strong></td>
+       <td><%= if defined? @component.invoice.strftime then @component.invoice.strftime("%d.%m.%Y") end %></td>
+     </tr>
+     <tr>
+       <td><strong><%= t('warranty_date')%></strong></td>
+       <td><%= if defined? @component.warranty.strftime then @component.warranty.strftime("%d.%m.%Y") end %><br>
+         <% if !@component.warranty.nil? %>
+             <%= "#{t('still')} #{(@component.warranty - Time.now.to_date).to_i} #{t('time_left')}"%>
+         <% end %></td>
+     </tr>
+     <tr>
+       <td><strong><%= t('updated_at')%></strong></td>
+       <td><%= (@component.updated_at + 2.hours).strftime("%d.%m.%Y %H:%M:%S") %></td>
      </tr>
     </tbody>
   </table>
@@ -61,6 +69,51 @@
       <% end %>
       </tbody>
     </table>
+  <% end %>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <strong> <%= t('built_ins') %> </strong>
+  </div>
+  <% if @component.components.any? %>
+      <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+          <th><%= t('title') %></th>
+          <th><%= t('quantity') %></th>
+          <th><%= t('category') %></th>
+          <th><%= t('room') %></th>
+          <th><%= t('supplier') %></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @component.components.each do |component| %>
+            <tr>
+              <td><%= link_to component.title, component_path(component) %></td>
+              <td><%= component.quantity %></td>
+              <td><%= link_to component.category.title, category_path(component.category) %></td>
+              <td><%= link_to component.room.title, room_path(component.room) %></td>
+              <td><%= link_to component.supplier.title, supplier_path(component.supplier) %></td>
+              <td>
+                <%= link_to image_tag("editS.png"), edit_component_path(component),
+                            :rel => "tooltip",
+                            :title => t('edit') %>
+                <%= link_to image_tag("deleteS.png"), component_path(component),
+                            :rel => "tooltip",
+                            :title => t('delete'),
+                            method: :delete,
+                            data: { confirm: t('are_you_sure') } %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <% else %>
+      <div class="panel-body">
+        Es sind hier keine Komponenten verbaut.
+      </div>
   <% end %>
 </div>
 
