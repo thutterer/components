@@ -41,6 +41,21 @@ class AttributesController < ApplicationController
 
   def destroy
     @attribute = Attribute.find(params[:id])
+    # I'm really not proud of this block
+    # ... teach me how to use Callbacks :)
+
+    # detach attribute from category
+    Category.all.each do |category|
+      if category.addribude.any? && defined? category.addribude.where(id: @attribute.id).first.destroy
+        category.addribude.where(id: @attribute.id).first.destroy
+      end
+    end
+    # remove all values for this attribute
+    ComponentAttributeValue.all.each do |value|
+      if value.attribute_id == @attribute.id
+        value.destroy
+      end
+    end
     @attribute.destroy
 
     redirect_to attributes_path
