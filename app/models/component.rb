@@ -11,4 +11,9 @@ class Component < ActiveRecord::Base
   validates :category_id, presence: {message: :no_category}
   validates :room_id, presence: {message: :no_room}
   validates :supplier_id, presence: {message: :no_supplier}
+
+
+  def self.search_title(query)
+    where("title like ?", "%#{query}%")
+  end
 end
