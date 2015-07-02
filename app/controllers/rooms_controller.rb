@@ -24,6 +24,7 @@ class RoomsController < ApplicationController
 
     if @room.save
       redirect_to action: 'index'
+      flash[:info] = t('new_room_success')
     else
       render 'new'
     end
@@ -34,6 +35,7 @@ class RoomsController < ApplicationController
 
     if @room.update(room_params)
       redirect_to action: 'index'
+      flash[:info] = t('edit_success')
     else
       render 'edit'
     end

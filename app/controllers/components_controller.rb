@@ -40,6 +40,7 @@ class ComponentsController < ApplicationController
         ComponentAttributeValue.create(component_id: @component.id, attribute_id: attribute.id)
       end
       redirect_to action: 'edit', id: @component.id
+      flash[:info] = t('new_component_success')
     else
       # quick bugfix for last commit.
       #   redirect_to action: 'new' might be better but that doesn't show validation error messages
@@ -58,6 +59,7 @@ class ComponentsController < ApplicationController
         ComponentAttributeValue.find(id).update(value: attribute_value)
       end
       redirect_to action: 'index'
+      flash[:info] = t('edit_success')
     else
       @categories = Category.all
       @rooms = Room.all
