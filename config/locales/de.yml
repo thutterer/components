@@ -42,6 +42,8 @@ de:
   edit_profile: "Profil bearbeiten"
   logout: "Abmelden"
   login: "Anmelden"
+  edit_user: "Benutzer bearbeiten"
+  users: "Benutzer"
   activerecord:
     errors:
       models:

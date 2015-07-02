@@ -21,13 +21,16 @@
         <div class="form-group">
           <%= f.label :email %>
           <%= f.text_field :email, :class => "form-control", :autofocus => true, disabled: 'yes' %>
+        </div>
+        <div class="form-group">
+          <%= f.label(text="Rolle", options={ for: "user_role_id" }) %>
           <%= f.collection_select :role_id, @roles, :id, :name, { prompt: true }, { class: 'form-control'} %>
         </div>
-         </div>
-         </div>
-        </div>
-        </div>
-        <p>
-        <%= f.submit :value => t("save"), :class => "btn btn-primary" %>
-        </p>
+      </div>
+    </div>
+
+    <p>
+      <%= f.submit :value => t("save"), :class => "btn btn-primary" %>
+      <%= link_to t('back'), users_path, :class => "btn btn-default" %>
+    </p>
 <% end %>
