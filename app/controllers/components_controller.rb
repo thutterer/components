@@ -20,6 +20,7 @@ class ComponentsController < ApplicationController
 
   def new
     @component = Component.new(quantity: 1, invoice: Time.now, warranty: Time.now)
+    @components = Component.order(:title)
     @categories = Category.all
     @rooms = Room.all
     @suppliers = Supplier.all
@@ -27,6 +28,7 @@ class ComponentsController < ApplicationController
 
   def edit
     @component = Component.find(params[:id])
+    @components = Component.order(:title)
     @categories = Category.all
     @rooms = Room.all
     @suppliers = Supplier.all
@@ -35,19 +37,15 @@ class ComponentsController < ApplicationController
   end
 
   def create
-    #render plain: params[:component].inspect
     @component = Component.new(component_params)
 
     if @component.save
       @component.category.addribude.each do |attribute|
-        #FIXME this should also happen when a new attribute gets added to the category!! and reverse
         ComponentAttributeValue.create(component_id: @component.id, attribute_id: attribute.id)
       end
       redirect_to action: 'edit', id: @component.id
       flash[:info] = t('new_component_success')
     else
-      # quick bugfix for last commit.
-      #   redirect_to action: 'new' might be better but that doesn't show validation error messages
       @categories = Category.all
       @rooms = Room.all
       @suppliers = Supplier.all
@@ -64,7 +62,7 @@ class ComponentsController < ApplicationController
           ComponentAttributeValue.find(id).update(value: attribute_value)
         end
       end
-      redirect_to action: 'index'
+      redirect_to @component
       flash[:info] = t('edit_success')
     else
       @categories = Category.all
@@ -84,7 +82,7 @@ class ComponentsController < ApplicationController
 
   private
   def component_params
-    params.require(:component).permit(:title, :category_id, :room_id, :supplier_id, :quantity, :invoice, :warranty)
+    params.require(:component).permit(:title, :category_id, :room_id, :supplier_id, :quantity, :invoice, :warranty, :component_id)
   end
 
 end

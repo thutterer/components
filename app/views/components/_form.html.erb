@@ -40,6 +40,20 @@
           <% end %>
         </div>
         <div class="form-group">
+          <%= f.label :room_id, :value => t('room') %>
+          <%= f.collection_select :room_id, @rooms, :id, :title, { prompt: true }, { class: 'form-control' } %>
+          <!-- FIXME if no rooms.... probably also categories!!! -->
+        </div>        <div class="form-group">
+          <%= f.label :room_id, :value => t('built_in') %>
+          <%= f.collection_select :component_id, @components, :id, :title, { prompt: true }, { class: 'form-control' } %>
+          <!-- FIXME if no rooms.... probably also categories!!! -->
+        </div>
+        <div class="form-group">
+          <%= f.label :supplier_id, :value => t('supplier') %>
+          <%= f.collection_select :supplier_id, @suppliers, :id, :title, { prompt: true }, { class: 'form-control' } %>
+          <!-- FIXME if no suppliers.... probably also categories!!! -->
+        </div>
+        <div class="form-group">
           <%= f.label :invoice, :value => t('invoice_date') %>
           <div class='input-group date' id='datetimepicker2'>
             <input type='text' class="form-control" name='component[invoice]' value='<%= if defined? @component.invoice.strftime then @component.invoice.strftime("%d.%m.%Y") else '' end %>>' />
@@ -72,16 +86,6 @@
                   });
               });
           </script>
-        </div>
-        <div class="form-group">
-          <%= f.label :room_id, :value => t('room') %>
-          <%= f.collection_select :room_id, @rooms, :id, :title, { prompt: true }, { class: 'form-control' } %>
-          <!-- FIXME if no rooms.... probably also categories!!! -->
-        </div>
-        <div class="form-group">
-          <%= f.label :supplier_id, :value => t('supplier') %>
-          <%= f.collection_select :supplier_id, @suppliers, :id, :title, { prompt: true }, { class: 'form-control' } %>
-          <!-- FIXME if no suppliers.... probably also categories!!! -->
         </div>
         <% if defined? @attribute_values %>
         <div class="form-group">
