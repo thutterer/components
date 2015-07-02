@@ -24,6 +24,7 @@ class AttributesController < ApplicationController
 
     if @attribute.save
       redirect_to action: 'index'
+      flash[:info] = t('new_attribute_success')
     else
       render 'new'
     end
@@ -34,6 +35,7 @@ class AttributesController < ApplicationController
 
     if @attribute.update(attribute_params)
       redirect_to action: 'index'
+      flash[:info] = t('edit_success')
     else
       render 'edit'
     end

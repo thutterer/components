@@ -20,6 +20,7 @@ class SuppliersController < ApplicationController
 
     if @supplier.save
       redirect_to action: 'index'
+      flash[:info] = t('new_supplier_success')
     else
       render 'new'
     end
@@ -30,6 +31,7 @@ class SuppliersController < ApplicationController
 
     if @supplier.update(supplier_params)
       redirect_to action: 'index'
+      flash[:info] = t('edit_success')
     else
       render 'edit'
     end

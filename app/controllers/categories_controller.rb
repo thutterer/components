@@ -32,6 +32,7 @@ class CategoriesController < ApplicationController
         end
       end
       redirect_to @category
+      flash[:info] = t('new_category_success')
     else
       render 'new'
     end
@@ -66,6 +67,7 @@ class CategoriesController < ApplicationController
         end
       end
       redirect_to @category
+      flash[:info] = t('edit_success')
     else
       render 'edit'
     end
