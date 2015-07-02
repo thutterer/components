@@ -26,8 +26,10 @@
     <%= link_to image_tag("logo.png", :alt => "logo"), root_path %>
   </div>
   <% if current_user %>
+      <% if request.env['PATH_INFO'] != '/' %>
       <div id="navigation">
         <ul class="nav nav-pills" role="tablist">
+          <li role="presentation"><%= link_to "Dashboard", root_path %></li>
           <li role="presentation"><%= link_to "Komponenten", components_path %></li>
           <li role="presentation"><%= link_to "Kategorien", categories_path %></li>
           <li role="presentation"><%= link_to "Räume", rooms_path %></li>
@@ -39,7 +41,12 @@
           <% end %>
         </ul>
       </div>
-  <% end%>
+      <% else %>
+      <div id="navigation-fake">
+       &nbsp;
+      </div>
+      <% end %>
+  <% end %>
   <div id="content">
 
     <% if flash.any? %>
